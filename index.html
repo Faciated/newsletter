@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
+
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+</head>
+
+<main>
+  <div class="newsletter-card">
+    <div class="newsletter-card__content | grid">
+      <h1 class="title">Stay Updated!</h1>
+
+      <p>Join 60,000+ product managers receiving monthly updates on:</p>
+
+      <ul role="list" class="newsletter-card__list">
+        <li>Product discovery and building what matters</li>
+        <li>Measuring to ensure updates are a success</li>
+        <li>And much more!</li>
+      </ul>
+
+      <form class="newsletter-card__form" action="">
+        <div class="flex">
+          <label for="email-field" class="email-label">
+            Email address
+          </label>
+
+          <input type="email" name="email" id="email-field" class="text-field" required placeholder="email@company.com"> 
+        </div>
+
+        <button class="button" type="submit">Subscribe to monthly newsletter</button>
+      </form>
+    </div>
+
+    <picture class="newsletter-card__picture">
+      <source media="(width >= 650px)" srcset="assets/images/illustration-sign-up-desktop.svg">
+      <img src="assets/images/illustration-sign-up-mobile.svg" alt="Newsletter illustration">
+    </picture>
+  </div>
+
+  <dialog class="success-msg">
+    <h1 class="title">Thanks for subscribing!</h1>
+
+    <p class="success-msg__text">A confirmation email has been sent to <span> </span>
+      Please open it and click the button inside to confirm your subscription.</p>
+
+    <button class="button">Dismiss message</button>
+  </dialog>
+</main>
+
+<footer class="attribution">
+  Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+  Coded by <a href="https://www.frontendmentor.io/profile/Faciated" target="_blank">Faciated</a>.
+</footer>
+
+</body>
+
+</html>

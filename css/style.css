@@ -1,0 +1,123 @@
+/** -----{RESET}----- **/
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/*
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+} */
+
+ul[role="list"],
+ol[role="list"] {
+    list-style: none;
+}
+
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+/** -----{VARIABLES}----- **/
+
+@font-face {
+    font-family: 'Roboto Regular';
+    font-display: swap;
+    font-weight: 400;
+    src: url("../assets/fonts/Roboto-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Roboto Bold';
+    font-display: swap;
+    font-weight: 700;
+    src: url("../assets/fonts/Roboto-Bold.ttf") format("truetype");
+}
+
+:root {
+    /* 
+    --> WEIGHT RULING <--
+    
+        100: Lightest
+        300: Light
+        400: Regular
+        500: Medium
+        700: Dark
+        900: Darkest
+    */
+
+    --clr-primary-400-raw: 4, 100%, 67%;
+    
+    --clr-accent-100-raw: 0, 0%, 100%;
+    --clr-accent-300-raw: 231, 7%, 60%;
+    --clr-accent-400-raw: 235, 18%, 26%;
+    --clr-accent-700-raw: 234, 29%, 20%;
+
+    --clr-primary-400: hsl(var(--clr-primary-400-raw));
+
+    --clr-accent-100: hsl(var(--clr-accent-100-raw));
+    --clr-accent-300: hsl(var(--clr-accent-300-raw));
+    --clr-accent-400: hsl(var(--clr-accent-400-raw));
+    --clr-accent-700: hsl(var(--clr-accent-700-raw));
+
+
+    --ff-rgl: 'Roboto Regular';
+    --ff-bold: 'Roboto Bold';
+
+    --fs-400: 1rem;
+    --fs-700: 3rem;
+}
+
+
+/** -----{UTILITY}----- **/
