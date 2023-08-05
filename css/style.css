@@ -3,6 +3,7 @@
 *,
 *::before,
 *::after {
+    padding: 0;
     margin: 0;
     font: inherit;
     box-sizing: border-box;
@@ -121,14 +122,15 @@ select {
     --gradient-primary: linear-gradient(to right, var(--clr-secondary-400), var(--clr-primary-300));
 
 
-    
+
     --ff-rgl: 'Roboto Regular';
     --ff-bold: 'Roboto Bold';
 
-    --fs-100: 0.625rem; 
+    --fs-100: 0.625rem;
+    --fs-200: 0.75rem;
     --fs-300: 0.875rem;
     --fs-400: 1rem;
-    --fs-700: 3rem;
+    --fs-700: 2.75rem;
 }
 
 
@@ -136,7 +138,15 @@ select {
 
 .title {
     font-family: var(--ff-bold), sans-serif;
-    font-size: var(--fs-700);
+    font-size: calc((var(--fs-700) - 0.5rem));
+    width: 100%;
+}
+
+@media (width > 375px) {
+    .title {
+        font-size: calc(var(--fs-700));
+        word-break: keep-all;
+    }
 }
 
 .button {
@@ -145,77 +155,111 @@ select {
     cursor: pointer;
     background-color: var(--clr-accent-700);
     color: var(--clr-accent-100);
-    border-radius: 1vw;
-    font-size: var(--fs-300);
+    border-radius: 0.275rem;
+    font-size: calc(var(--fs-200) - 0.1rem);
     font-family: var(--ff-bold);
-    letter-spacing: 0.065rem;
-    padding: 1rem;
+    letter-spacing: 0.035rem;
+    padding: 0.85rem 1.25rem;
     width: 100%;
+    line-height: 0.85;
+    text-align: center;
 }
 
-.button:is(:hover, :focus) {
+.button:is(:hover, :focus, :active) {
     background-image: var(--gradient-primary);
+    box-shadow: 0.1rem 0.75rem 1rem 0.1rem hsl(var(--clr-primary-300-raw), 0.275);
 }
-
-/* Box Shadow */
-.button::after { 
-    content: '';
-    position: absolute;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    border-radius: inherit;
-    box-shadow: 0.1rem 0.75rem 1rem 0.1rem hsl(var(--clr-primary-300-raw), 0.25);
-    opacity: 0;
-}
-
-.button:is(:focus, :hover)::after {
-    opacity: 1;
-}
-
 
 /** -----{GENERAL STYLING}----- **/
 
-@media (width >= 375px) {
+@media (width > 375px) {
     body {
         display: grid;
-        place-items: center;       
+        place-items: center;
     }
 }
 
 body {
-    color: var(--clr-accent-100);
     background-color: var(--clr-accent-400);
     font-family: var(--ff-rgl), sans-serif;
+    color: var(--clr-accent-100);
 }
 
 /** -----{NEWSLETTER CARD}----- **/
 
 .newsletter-card {
-    --padding: 1rem;
+    --card-padding: 0rem 0rem 1rem;
+    --card-margin: none;
 
-    color: var(--clr-accent-900);
-    background-color: var(--clr-accent-100);
     display: flex;
     flex-direction: column-reverse;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     gap: 2rem;
-    padding: 1rem;
-    border-radius: 1.75vw;
+    max-width: 60rem;
+    color: var(--clr-accent-400);
+    background-color: var(--clr-accent-100);
+    padding: var(--card-padding);
+    margin-inline: var(--card-margin);
+    font-size: calc(var(--fs-200) + 0.05rem);
 }
 
-.newsletter-card > * {
-    flex-basis: 1;
-}
-
-@media (width >= 375px) {
+@media (width > 375px) {
     .newsletter-card {
+        --card-padding: 1rem;
+        --card-margin: 0.75rem;
+
         flex-direction: row;
+        border-radius: 3.5%;
+        aspect-ratio: 4 / 1;
     }
 }
 
+/** -----{NEWSLETTER CARD - CONTENT}----- **/
+
+.newsletter-card__content {
+    flex: 1;
+    padding-block: calc(var(--card-padding) * 2);
+}
+
+.newsletter-card__content-wrap {
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.25rem;
+    width: 80%;
+}
+
+@media (width < 717px) {
+    .newsletter-card__content-wrap {
+        gap: clamp(0.75rem, 2vw, 2rem);
+    }
+}
+
+/** -----{NEWSLETTER CARD - FORM}----- **/
+
+.newsletter-card__form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/** -----{NEWSLETTER CARD - PICTURE}----- **/
+
+.newsletter-card__picture {
+    flex: 0.75;
+}
+
+.newsletter-card__picture img {
+    width: 100%;
+    
+}
+
+
 /** -----{FOOTER}----- **/
+
 .link {
     color: var(--clr-primary-300);
     text-decoration: underline;

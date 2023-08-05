@@ -15,31 +15,33 @@
 <main>
   <div class="newsletter-card">
     <div class="newsletter-card__content">
-      <h1 class="title">Stay Updated!</h1>
+      <div class="newsletter-card__content-wrap">
+        <h1 class="title">Stay updated!</h1>
 
-      <p>Join 60,000+ product managers receiving monthly updates on:</p>
+        <p>Join 60,000+ product managers receiving monthly updates on:</p>
 
-      <ul role="list" class="newsletter-card__list">
-        <li>Product discovery and building what matters</li>
-        <li>Measuring to ensure updates are a success</li>
-        <li>And much more!</li>
-      </ul>
+        <ul role="list" class="newsletter-card__list">
+          <li>Product discovery and building what matters</li>
+          <li>Measuring to ensure updates are a success</li>
+          <li>And much more!</li>
+        </ul>
 
-      <form class="newsletter-card__form" action="">
-        <div class="flex">
-          <label for="email-field" class="email-label">
-            Email address
-          </label>
+        <form class="newsletter-card__form" action="">
+          <div class="flex">
+            <label for="email-field" class="email-label">
+              Email address
+            </label>
 
-          <input type="email" name="email" id="email-field" class="text-field" required placeholder="email@company.com"> 
-        </div>
+            <input type="email" name="email" id="email-field" class="text-field" required placeholder="email@company.com">
+          </div>
 
-        <button class="button" type="submit">Subscribe to monthly newsletter</button>
-      </form>
+          <button class="button" type="submit">Subscribe to monthly newsletter</button>
+        </form>
+      </div>
     </div>
 
     <picture class="newsletter-card__picture">
-      <source media="(width >= 650px)" srcset="assets/images/illustration-sign-up-desktop.svg">
+      <source media="(width > 785px)" srcset="assets/images/illustration-sign-up-desktop.svg">
       <img src="assets/images/illustration-sign-up-mobile.svg" alt="Newsletter illustration">
     </picture>
   </div>
@@ -54,10 +56,10 @@
   </dialog>
 </main>
 
-<footer class="attribution">
+<!-- <footer class="attribution">
   Challenge by <a class="link" href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
   Coded by <a class="link" href="https://www.frontendmentor.io/profile/Faciated" target="_blank">Faciated</a>.
-</footer>
+</footer> -->
 
 </body>
 
