@@ -1,4 +1,4 @@
-/** -----{RESET}----- **/
+/** -----{Reset}----- **/
 
 *,
 *::before,
@@ -50,7 +50,7 @@ a:not([class]) {
 img,
 picture {
     max-width: 100%;
-    display: block;
+    display: inline-block;
 }
 
 /* 
@@ -77,7 +77,7 @@ select {
 }
 
 
-/** -----{VARIABLES}----- **/
+/** -----{Variables}----- **/
 
 @font-face {
     font-family: 'Roboto Regular';
@@ -95,7 +95,7 @@ select {
 
 :root {
     /* 
-    --> WEIGHT RULING <--
+    --> Weight Ruling <--
     
         100: Lightest
         300: Light
@@ -138,7 +138,7 @@ select {
 }
 
 
-/** -----{COMPONENTS}----- **/
+/** -----{Components}----- **/
 
 .title {
     font-family: var(--ff-bold), sans-serif;
@@ -146,10 +146,20 @@ select {
     width: 100%;
 }
 
-@media (width > 375px) {
-    .title {
-        font-size: calc(var(--fs-700) - 0.25rem);
-    }
+.list-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.list-item span {
+    flex: 1;
+    display: inline-block;
+}
+
+.list-icon {
+    aspect-ratio: 1;
+    width: 1rem;
 }
 
 .text-field {
@@ -189,14 +199,7 @@ select {
     box-shadow: 0.1rem 0.75rem 1rem 0.1rem hsl(var(--clr-primary-300-raw), 0.275);
 }
 
-/** -----{GENERAL STYLING}----- **/
-
-@media (width > 375px) {
-    body {
-        display: grid;
-        place-items: center;
-    }
-}
+/** -----{General Styling}----- **/
 
 body {
     background-color: var(--clr-accent-400);
@@ -204,94 +207,73 @@ body {
     color: var(--clr-accent-100);
 }
 
-/** -----{NEWSLETTER CARD}----- **/
+/** -----{Newsletter Card}----- **/
 
 .newsletter-card {
-    --card-padding: 0rem 0rem 1rem;
-    --card-margin: none;
-
     display: flex;
     flex-direction: column-reverse;
-    align-items: center;
-    justify-content: center;
-    gap: 1.75rem;
-    max-width: 60rem;
-    color: var(--clr-accent-400);
     background-color: var(--clr-accent-100);
-    padding: var(--card-padding);
-    margin-inline: var(--card-margin);
-    font-size: calc(var(--fs-200));
+    color: var(--clr-accent-700);
+    font-size: var(--fs-300);
 }
 
+/** -----{Newsletter Card - Content}----- **/
+
+.newsletter-card__content-wrap {
+    width: calc(100% - 3rem);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-inline: auto;
+    gap: 1rem;
+}
+
+/** -----{Newsletter Card - List}----- **/
+
+.newsletter-card__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/** -----{Newsletter Card - Picture}----- **/
+
+.newsletter-card__picture {
+    flex: initial;
+}
+
+.newsletter-card__picture img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/** --[DESKTOP CONFIG]-- **/
+
 @media (width > 375px) {
+    /** -----{Components}----- **/
+
+    .title {
+        font-size: calc(var(--fs-700) - 0.25rem);
+    }
+
+    /** -----{General Styling}----- **/
+    
+    body {
+        display: grid;
+        place-items: center;
+    }
+
+    /** -----{Newsletter Card}----- **/
+
     .newsletter-card {
-        --card-padding: 1rem 1rem;
-        --card-margin: 0.75rem;
+        --card-margin: 1rem;
 
         flex-direction: row;
         border-radius: 3%;
+        margin-inline: auto;
     }
-}
 
-/** -----{NEWSLETTER CARD - CONTENT}----- **/
 
-.newsletter-card__content {
-    flex: 1;
-}
-
-.newsletter-card__content-wrap {
-    margin-inline: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 1.1rem;
-    width: 80%;
-}
-
-/** -----{NEWSLETTER CARD - LIST}----- **/
-
-.newsletter-card__list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-}
-
-.newsletter-card__list li {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.list-icon {
-    aspect-ratio: 1;
-    width: 20px;
-    height: 20px;
-}
-
-/** -----{NEWSLETTER CARD - FORM}----- **/
-
-.newsletter-card__form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.email-label {
-    font-family: var(--ff-bold);
-    display: block;
-    line-height: 1.75rem;
-    font-size: var(--fs-100);
-}
-
-/** -----{NEWSLETTER CARD - PICTURE}----- **/
-
-/** -----{FOOTER}----- **/
-
-.link {
-    color: var(--clr-primary-300);
-    text-decoration: underline;
-}
-
-.link:hover {
-    text-decoration: none;
 }
