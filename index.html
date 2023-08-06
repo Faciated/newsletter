@@ -16,34 +16,43 @@
   <div class="newsletter-card">
     <div class="newsletter-card__content">
       <div class="newsletter-card__content-wrap">
-        <h1 class="title">Stay updated!</h1>
+        <div class="flex-group dir-col" data-spacing="sm">
+            <h1 class="title">Stay updated!</h1>
 
-        <p>Join 60,000+ product managers receiving monthly updates on:</p>
+            <p>Join 60,000+ product managers receiving monthly updates on:</p>
 
-        <ul role="list" class="newsletter-card__list">
-          <li class="list-item">
-            <svg class="list-icon"><use xlink:href="assets/images/icon-list.svg#icon-list" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg>
-            <span>Product discovery and building what matters</span>
-          </li>
+            <ul role="list" class="newsletter-card__list">
+              <li class="list-item">
+                <svg class="list-icon">
+                  <use xlink:href="assets/images/icon-list.svg#icon-list" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                </svg>
+                <p>Product discovery and building what matters</p>
+              </li>
 
-          <li class="list-item">
-            <svg class="list-icon"><use xlink:href="assets/images/icon-list.svg#icon-list" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg>
-            <span>Measuring to ensure updates are a success</span>
-          </li>
+              <li class="list-item">
+                <svg class="list-icon">
+                  <use xlink:href="assets/images/icon-list.svg#icon-list" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                </svg>
+                <p>Measuring to ensure updates are a success</p>
+              </li>
 
-          <li class="list-item">
-            <svg class="list-icon"><use xlink:href="assets/images/icon-list.svg#icon-list" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg>
-            <span>And much more!</span>
-          </li>
-        </ul>
-
+              <li class="list-item">
+                <svg class="list-icon">
+                  <use xlink:href="assets/images/icon-list.svg#icon-list" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                </svg>
+                <p>And much more!</p>
+              </li>
+            </ul>
+        </div>
+        
         <form class="newsletter-card__form" action="">
-          <div>
-            <label for="email-field" class="email-label">
-              Email address
-            </label>
-
-            <input type="email" name="email" id="email-field" class="text-field" required placeholder="email@company.com">
+          <div class="newsletter-card__form-wrap">
+            <div class="flex-group jc-sb ai-c">
+              <label for="email-field" class="text-field-label">Email address</label>
+              <p class="text-field-label-info">Valid email required</p>
+            </div>
+            
+            <input pattern="[A-Za-z0-9._]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="e.g. 'email@company.com'" type="email" name="email" id="email-field" class="text-field" required placeholder="email@company.com" >
           </div>
 
           <button class="button" type="submit">Subscribe to monthly newsletter</button>
@@ -52,7 +61,7 @@
     </div>
 
     <picture class="newsletter-card__picture">
-        <source media="(width > 375px)" srcset="assets/images/illustration-desktop.png">
+        <source media="(width > 425px)" srcset="assets/images/illustration-desktop.png">
         <img src="assets/images/illustration-mobile.png" alt="Newslettter illustration">
     </picture>
   </div>
