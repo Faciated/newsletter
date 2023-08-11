@@ -1,19 +1,15 @@
 // --{Modules}-- //
-// Utility //
-import print from "./modules/utility/print.js"
-
 // Classes //
-import form from "./modules/classes/form.js";
+import Form from "./modules/classes/Form.js";
 
 // --{Variables}-- //
-const successWindow = document.querySelector('.success-msg')
-const newsletterForm = document.querySelector('.newsletter-card__form')
+const newsletter = document.querySelector('.newsletter-card')
+const successWindow = document.querySelector('.success-window')
 
-const newsletterFormHandler = new form(newsletterForm)
+const formHandler = new Form(newsletter.querySelector('.newsletter-card__form'))
 
-if (newsletterFormHandler) {
-    newsletterFormHandler.setupForm();
-    newsletterFormHandler.connect("submitted", function (event) {
-      event.target.setAttribute('style', 'visibility: hidden;')
+if (formHandler) {
+    formHandler.eventHandler.connect("submitted", () => {
+      
     })
 };

@@ -12,66 +12,84 @@
   <title>Frontend Mentor | Newsletter sign-up form with success message</title>
 </head>
 
-<main>
-  <div class="newsletter-card">
-    <div class="newsletter-card__content">
-      <div class="newsletter-card__content-wrap">
+<body>
+  <main>
+    <div class="newsletter">
+      <picture class="newsletter__picture">
+        <!-- <source media="(width >= 376px)" srcset="assets/images/illustration-desktop.png"> -->
+        <img src="assets/images/illustration-mobile.png" alt="Newslettter illustration">
+      </picture>
+
+      <div class="newsletter__content">
         <h1 class="title">Stay updated!</h1>
 
         <p>Join 60,000+ product managers receiving monthly updates on:</p>
 
-        <ul role="list" class="newsletter-card__list">
+        <ul role="list" class="newsletter__list">
           <li class="list-item">
-            <svg class="list-icon"><use xlink:href="assets/images/icon-list.svg#icon-list" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg>
-            <span>Product discovery and building what matters</span>
+            <svg class="list-icon">
+              <use xlink:href="assets/images/icon-list.svg#icon-list" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+            </svg>
+            <p>Product discovery and building what matters</p>
           </li>
 
           <li class="list-item">
-            <svg class="list-icon"><use xlink:href="assets/images/icon-list.svg#icon-list" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg>
-            <span>Measuring to ensure updates are a success</span>
+            <svg class="list-icon">
+              <use xlink:href="assets/images/icon-list.svg#icon-list" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+            </svg>
+            <p>Measuring to ensure updates are a success</p>
           </li>
 
           <li class="list-item">
-            <svg class="list-icon"><use xlink:href="assets/images/icon-list.svg#icon-list" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg>
-            <span>And much more!</span>
+            <svg class="list-icon">
+              <use xlink:href="assets/images/icon-list.svg#icon-list" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+            </svg>
+            <p>And much more!</p>
           </li>
         </ul>
 
-        <form class="newsletter-card__form" action="">
-          <div>
-            <label for="email-field" class="email-label">
-              Email address
-            </label>
-
-            <input type="email" name="email" id="email-field" class="text-field" required placeholder="email@company.com">
+        <form class="newsletter__form" action="/">
+          <div class="flex jc-sb ai-c">
+            <label for="email-field" class="text-field-label">Email address</label>
+            <p class="text-field-label-info">Valid email required</p>
           </div>
 
-          <button class="button" type="submit">Subscribe to monthly newsletter</button>
+          <input pattern="[A-Za-z0-9._]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="e.g. 'email@company.com'" type="email"
+            name="email" id="email-field" class="text-field" required placeholder="email@company.com">
+
+          <button class="primary-btn" type="submit">Subscribe to monthly newsletter</button>
         </form>
       </div>
+
     </div>
 
-    <picture class="newsletter-card__picture">
-        <source media="(width > 375px)" srcset="assets/images/illustration-desktop.png">
-        <img src="assets/images/illustration-mobile.png" alt="Newslettter illustration">
-    </picture>
-  </div>
+    <div class="success-window" data-disabled>
+      <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+        <defs>
+          <linearGradient id="a" x1="100%" x2="0%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF6A3A" />
+            <stop offset="100%" stop-color="#FF527B" />
+          </linearGradient>
+        </defs>
+        <g fill="none">
+          <circle cx="32" cy="32" r="32" fill="url(#a)" />
+          <path stroke="#FFF" stroke-width="4" d="m18.286 34.686 8.334 7.98 19.094-18.285" />
+        </g>
+      </svg>
 
-  <dialog class="success-msg">
-    <h1 class="title">Thanks for subscribing!</h1>
+      <h1 class="title">Thanks for subscribing!</h1>
 
-    <p class="success-msg__text">A confirmation email has been sent to <span> </span>
-      Please open it and click the button inside to confirm your subscription.</p>
+      <p>A confirmation email has been sent to <span> </span>
+        Please open it and click the button inside to confirm your subscription.</p>
 
-    <button class="button">Dismiss message</button>
-  </dialog>
-</main>
+      <button class="primary-btn">Dismiss message</button>
+    </div>
+  </main>
 
-<!-- <footer class="attribution">
-  Challenge by <a class="link" href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-  Coded by <a class="link" href="https://www.frontendmentor.io/profile/Faciated" target="_blank">Faciated</a>.
-</footer> -->
-
+  <!-- <footer class="attribution">
+    Challenge by <a class="link" href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a class="link" href="https://www.frontendmentor.io/profile/Faciated" target="_blank">Faciated</a>.
+  </footer> -->
 </body>
 
 </html>
