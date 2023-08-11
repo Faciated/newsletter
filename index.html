@@ -16,7 +16,7 @@
   <main>
     <div class="newsletter">
       <picture class="newsletter__picture">
-        <!-- <source media="(width >= 376px)" srcset="assets/images/illustration-desktop.png"> -->
+        <source media="(width > 500px)" srcset="assets/images/illustration-desktop.png">
         <img src="assets/images/illustration-mobile.png" alt="Newslettter illustration">
       </picture>
 
@@ -49,13 +49,12 @@
         </ul>
 
         <form class="newsletter__form" action="/">
-          <div class="flex jc-sb ai-c">
+          <div class="flex jc-sb ai-c flex-wrap">
             <label for="email-field" class="text-field-label">Email address</label>
-            <p class="text-field-label-info">Valid email required</p>
+            <p class="text-field-info">Valid email required</p>
           </div>
 
-          <input pattern="[A-Za-z0-9._]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="e.g. 'email@company.com'" type="email"
-            name="email" id="email-field" class="text-field" required placeholder="email@company.com">
+          <input pattern="[A-Za-z0-9._]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="e.g. 'email@company.com'" type="email" name="email" id="email-field" class="text-field" required placeholder="email@company.com">
 
           <button class="primary-btn" type="submit">Subscribe to monthly newsletter</button>
         </form>
@@ -64,18 +63,7 @@
     </div>
 
     <div class="success-window" data-disabled>
-      <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-        <defs>
-          <linearGradient id="a" x1="100%" x2="0%" y1="0%" y2="100%">
-            <stop offset="0%" stop-color="#FF6A3A" />
-            <stop offset="100%" stop-color="#FF527B" />
-          </linearGradient>
-        </defs>
-        <g fill="none">
-          <circle cx="32" cy="32" r="32" fill="url(#a)" />
-          <path stroke="#FFF" stroke-width="4" d="m18.286 34.686 8.334 7.98 19.094-18.285" />
-        </g>
-      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><defs><linearGradient id="a" x1="100%" x2="0%" y1="0%" y2="100%"><stop offset="0%" stop-color="#FF6A3A" /><stop offset="100%" stop-color="#FF527B" /></linearGradient></defs><g fill="none"><circle cx="32" cy="32" r="32" fill="url(#a)" /><path stroke="#FFF" stroke-width="4" d="m18.286 34.686 8.334 7.98 19.094-18.285" /></g></svg>
 
       <h1 class="title">Thanks for subscribing!</h1>
 
