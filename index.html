@@ -7,77 +7,69 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
 
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/main.js" type="module"></script>
+  <script src="js/app.js" type="module"></script>
 
   <title>Frontend Mentor | Newsletter sign-up form with success message</title>
 </head>
 
 <body>
   <main>
-    <div class="newsletter">
-      <picture class="newsletter__picture">
-        <source media="(width > 500px)" srcset="assets/images/illustration-desktop.png">
-        <img src="assets/images/illustration-mobile.png" alt="Newslettter illustration">
-      </picture>
-
-      <div class="newsletter__content">
-        <h1 class="title">Stay updated!</h1>
-
-        <p>Join 60,000+ product managers receiving monthly updates on:</p>
-
-        <ul role="list" class="newsletter__list">
-          <li class="list-item">
-            <svg class="list-icon">
-              <use xlink:href="assets/images/icon-list.svg#icon-list" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-            </svg>
-            <p>Product discovery and building what matters</p>
-          </li>
-
-          <li class="list-item">
-            <svg class="list-icon">
-              <use xlink:href="assets/images/icon-list.svg#icon-list" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-            </svg>
-            <p>Measuring to ensure updates are a success</p>
-          </li>
-
-          <li class="list-item">
-            <svg class="list-icon">
-              <use xlink:href="assets/images/icon-list.svg#icon-list" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-            </svg>
-            <p>And much more!</p>
-          </li>
-        </ul>
-
-        <form class="newsletter__form" action="/">
-          <div class="flex jc-sb ai-c flex-wrap">
-            <label for="email-field" class="text-field-label">Email address</label>
-            <p class="text-field-info">Valid email required</p>
-          </div>
-
-          <input pattern="[A-Za-z0-9._]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="e.g. 'email@company.com'" type="email" name="email" id="email-field" class="text-field" required placeholder="email@company.com">
-
-          <button class="primary-btn" type="submit">Subscribe to monthly newsletter</button>
-        </form>
+    <div class="pages-container">
+      <div class="newsletter">
+        <picture class="newsletter__picture">
+          <source media="(width >= 426px)" srcset="assets/images/illustration-desktop.png">
+          <img src="assets/images/illustration-mobile.png" alt="Newslettter illustration">
+        </picture>
+        <div class="newsletter__content">
+          <h1 class="title">Stay updated!</h1>
+          <p>Join 60,000+ product managers receiving monthly updates on:</p>
+          <ul role="list" class="newsletter__list">
+            <li class="list-item">
+              <svg class="list-icon">
+                <use xlink:href="assets/images/icon-list.svg#icon-list" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+              </svg>
+              <p>Product discovery and building what matters</p>
+            </li>
+            <li class="list-item">
+              <svg class="list-icon">
+                <use xlink:href="assets/images/icon-list.svg#icon-list" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+              </svg>
+              <p>Measuring to ensure updates are a success</p>
+            </li>
+            <li class="list-item">
+              <svg class="list-icon">
+                <use xlink:href="assets/images/icon-list.svg#icon-list" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+              </svg>
+              <p>And much more!</p>
+            </li>
+          </ul>
+          <form class="newsletter__form" action="/">
+            <div class="flex jc-sb ai-c flex-wrap">
+              <label for="email-field" class="text-field-label">Email address</label>
+              <p class="text-field-info">Valid email required</p>
+            </div>
+            <input class="text-field" id="email-field" data-type="email" pattern="[A-Za-z0-9._]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="e.g. 'email@company.com'" type="email" name="email"  required placeholder="email@company.com">
+            <button class="primary-btn" type="submit">Subscribe to monthly newsletter</button>
+          </form>
+        </div>
       </div>
-
+      <div class="success-msg" data-disabled>
+        <div class="success-msg__wrap | flex dir-col jc-c" data-spacing="lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><defs><linearGradient id="a" x1="100%" x2="0%" y1="0%" y2="100%"><stop offset="0%" stop-color="#FF6A3A" /><stop offset="100%" stop-color="#FF527B" /></linearGradient></defs><g fill="none"><circle cx="32" cy="32" r="32" fill="url(#a)" /><path stroke="#FFF" stroke-width="4" d="m18.286 34.686 8.334 7.98 19.094-18.285" /></g></svg>
+            <h1 class="title">Thanks for subscribing!</h1>
+            <p>
+              A confirmation email has been sent to <span class="email-markup"></span>.
+              Please open it and click the button inside to confirm your subscription.
+            </p>
+        </div>
+        <button class="primary-btn">Dismiss message</button>
+      </div>
     </div>
 
-    <div class="success-window" data-disabled>
-      <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><defs><linearGradient id="a" x1="100%" x2="0%" y1="0%" y2="100%"><stop offset="0%" stop-color="#FF6A3A" /><stop offset="100%" stop-color="#FF527B" /></linearGradient></defs><g fill="none"><circle cx="32" cy="32" r="32" fill="url(#a)" /><path stroke="#FFF" stroke-width="4" d="m18.286 34.686 8.334 7.98 19.094-18.285" /></g></svg>
-
-      <h1 class="title">Thanks for subscribing!</h1>
-
-      <p>A confirmation email has been sent to <span> </span>
-        Please open it and click the button inside to confirm your subscription.</p>
-
-      <button class="primary-btn">Dismiss message</button>
-    </div>
+    <footer class="attribution">
+      Challenge by <a class="link" href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a class="link" href="https://www.frontendmentor.io/profile/k-ellvyn" target="_blank">k-ellvyn</a>.
+    </footer>
   </main>
-
-  <!-- <footer class="attribution">
-    Challenge by <a class="link" href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    Coded by <a class="link" href="https://www.frontendmentor.io/profile/Faciated" target="_blank">Faciated</a>.
-  </footer> -->
 </body>
-
 </html>

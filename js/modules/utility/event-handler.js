@@ -7,22 +7,24 @@ export default class EventHandler {
     };
 
     new(customEventName, options) {
-        if (this.customEvents[customEventName]) {
-            return
-        };
+        if (this.customEvents[customEventName])
+            return;
 
-        this.customEvents[customEventName] = new Event(customEventName, options);
+        this.customEvents[customEventName] = new CustomEvent(customEventName, options);
     };
 
-    fire(customEventName) {
+    fire(customEventName, args) {
         let customEvent = this.customEvents[customEventName];
+        customEvent.arguments = args
+        
         this.element.dispatchEvent(customEvent);
+        
+        delete customEvent.arguments
     };
 
     connect(eventName, callback, options) {
-        if (this.connectedEvents[eventName]) {
-            return
-        };
+        if (this.connectedEvents[eventName])
+            return;
 
         this.connectedEvents[eventName] = {
             eventName: eventName,
@@ -37,14 +39,12 @@ export default class EventHandler {
         let connectedEvent = this.connectedEvents[eventName]
         
         this.element.removeEventListener(connectedEvent.eventName, connectedEvent.callback, connectedEvent.options);
-  
         delete this.connectedEvents[eventName];
     };
 
     destroy(customEventName) {
-        if (!this.customEvents[customEventName]) {
-            return
-        };
+        if (!this.customEvents[customEventName])
+            return;
 
         this.customEvents[customEventName].remove();
         delete this.customEvents[customEventName]
