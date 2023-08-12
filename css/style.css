@@ -144,6 +144,7 @@ select {
     --fs-200: 0.75rem;
     --fs-300: 0.875rem;
     --fs-400: 1rem;
+    --fs-600: 2.25rem;
     --fs-700: 3rem;
 }
 
@@ -156,7 +157,7 @@ body {
     color: var(--clr-accent-700);
 }
 
-@media (width >= 425px) {
+@media (width >= 426px) {
     body {
         display: grid;
         place-items: center;
@@ -171,7 +172,7 @@ input:is([type="button"], [type="submit"]) {
 
 /** -----{Utilities}----- **/
 [data-disabled] {
-    display: none;
+    display: none !important;
 }
 
 .flex {
@@ -215,7 +216,7 @@ input:is([type="button"], [type="submit"]) {
 }
 
 [data-spacing="lg"] {
-    --_spacing: 2rem;
+    --_spacing: 1.5rem;
 }
 
 [data-spacing="xl"] {
@@ -225,7 +226,13 @@ input:is([type="button"], [type="submit"]) {
 /** -----{Components}----- **/
 .title {
     font-family: var(--ff-bold);
-    font-size: var(--fs-700);
+    font-size: var(--fs-600);
+}
+
+@media (width >= 426px) {
+    .title {
+        font-size: var(--fs-700);
+    }
 }
 
 .list-item {
@@ -245,44 +252,45 @@ input:is([type="button"], [type="submit"]) {
 }
 
 .text-field-label {
-    font-size: calc(var(--fs-200) + 0.1rem);
+    font-size: calc(var(--fs-200) + 0.025rem);
     font-family: var(--ff-bold);
 }
 
 .text-field-info {
     display: none;
     font-family: var(--ff-bold);
-    font-size: var(--fs-200);
+    font-size: calc(var(--fs-200) + 0.025rem);
     color: var(--clr-primary-400);
 }
 
 :has(.text-field:not(:placeholder-shown):invalid) .text-field-info {
-    /* Style the info of an input field thats invalid */
+    /* Show input field error */
     display: initial;
 }
 
 .text-field {
     padding: 0.75rem 1.25rem;
     border: none;
-    outline: hsl(var(--clr-neutral-900-raw), 0.15) solid 1px;
+    outline: hsl(var(--clr-neutral-900-raw), 0.25) solid 1px;
     border-radius: 0.5rem;
     margin-bottom: 0.75rem;
 }
 
-.text-field:focus {
+.text-field:focus-visible {
     outline-color: hsl(var(--clr-neutral-900-raw), 1)
 }
 
-.text-field:not(:placeholder-shown):invalid {
-    /* Style an input field when invalid */
+.text-field:not(:placeholder-shown):not(:autofill):invalid {
     outline: hsl(var(--clr-primary-400-raw), 1) solid 1px;
-    background-color: hsl(var(--clr-primary-400-raw), 0.2);
+    color: var(--clr-primary-400);
+    background-color: hsl(var(--clr-primary-400-raw), 0.15);
 }
 
 .primary-btn {
-    --_box-shadow: 0 0.5rem 1rem 0.1rem hsl(var(--clr-primary-400-raw), 0.4);
+    --_box-shadow: 0 0.75rem 1.5rem 0.15rem hsl(var(--clr-primary-400-raw), 0.425);
 
-    padding: 1rem 0.5rem;
+    padding: 1rem 0.5rem; 
+    margin-bottom: 1rem;
     border: none;
     border-radius: 0.5rem;
 
@@ -293,26 +301,34 @@ input:is([type="button"], [type="submit"]) {
     letter-spacing: 0.04rem;
 }
 
+@media (width >= 426px) {
+    .primary-btn {
+        margin-bottom: 0;
+    }
+}
+
 .primary-btn:active {
     background-image: var(--gradient-primary);
     box-shadow: var(--_box-shadow);
 }
 
 @media (hover: hover) {
-    /* On devices with mouse inputs */
     .primary-btn:hover {
         background-image: var(--gradient-primary);
         box-shadow: var(--_box-shadow);
     }
 }
 
+.email-markup {
+    font-family: var(--ff-bold);
+}
+
 /** -----{Newsletter Styling}----- **/
 .newsletter {
-    --_spacing-multiplier: 1.5;
+    --_spacing-multiplier: 1.75;
 
-    /* Only add local variables like these for child elements */
     --_content-padding: 0.5rem 2.25rem;
-    --_content-spacing: 1rem;
+    --_content-spacing: 0.75rem;
 
     min-height: 100dvh;
     min-height: 100vh;
@@ -322,8 +338,7 @@ input:is([type="button"], [type="submit"]) {
     background-color: var(--clr-neutral-100);
 }
 
-@media (width >= 425px) {
-    /* Add left/right layout and change margins and padding on Desktop/Tablets */
+@media (width >= 426px) {
     .newsletter {
         display: grid;
         gap: 0.75rem;
@@ -332,19 +347,17 @@ input:is([type="button"], [type="submit"]) {
         min-height: 0;
         border-radius: 2rem;
         padding: 1.25rem;
-        margin-inline: 0.75rem;
+        margin: 0.75rem;
     }
 }
 
-@media (width < 425px) and (height > 800px) {
-    /* Incrase gap spacings of newsletter content on taller phones */
+@media (width < 426px) and (height > 800px) {
     .newsletter {
         --_spacing-multiplier: 3.5;
     }
 }
 
-@media (425px <= width <= 650px) {
-    /* Reduce padding and disable illustration at certain widths */
+@media (426px <= width <= 710px) {
     .newsletter {
         --_content-padding: 0.5rem 1rem;
 
@@ -360,16 +373,14 @@ input:is([type="button"], [type="submit"]) {
     margin-bottom: 2rem;
 }
 
-@media (width >= 425px) {
-    /* Make newsletter graphic image stretch fully on desktops/tablets */
+@media (width >= 426px) {
     .newsletter__picture {
         height: 100%;
         margin-bottom: 0;
     }
 }
 
-@media (425px <= width <= 650px) { 
-    /* Disable illustration at certain widths */
+@media (426px <= width <= 710px) { 
     .newsletter__picture {
         display: none;
     }
@@ -404,3 +415,32 @@ input:is([type="button"], [type="submit"]) {
     gap: 0.5rem;
 }
 
+@media (width < 426px) and (height > 800px) {
+    .newsletter__form {
+        padding-bottom: 1.25rem;
+    }
+}
+
+/** -----{Success Window Styling}----- **/
+.success-msg {
+    display: grid;
+    min-height: 100dvh;
+    min-height: 100vh;
+    grid-template-rows: 1fr;
+    gap: 6rem;
+    justify-content: center;
+
+    padding: 0 2rem 1.25rem;
+    background-color: var(--clr-neutral-100);
+}
+
+@media (width >= 426px) {
+    .success-msg {
+        min-height: 0; 
+        max-width: 30rem; 
+        gap: 2.5rem;
+        padding: 3.5rem;
+        border-radius: 1.5rem;
+        margin: 0.75rem;
+    };
+};
