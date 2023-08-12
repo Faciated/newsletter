@@ -324,14 +324,6 @@ footer {
     }
 }
 
-.email-markup {
-    font-family: var(--ff-bold);
-}
-
-.link {
-    color: var(--clr-primary-300);
-}
-
 /** -----{Newsletter Styling}----- **/
 .newsletter {
     --_spacing-multiplier: 1.75;
