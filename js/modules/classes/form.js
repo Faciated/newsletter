@@ -13,9 +13,11 @@ class FormInterpreter { // was too lazy to add different input types
     };
 
     emailCheck(emailAddress) {
+        let formattedEmailAddress = String(emailAddress).toLowerCase()
+
         let expression = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-        return expression.test(String(emailAddress).toLowerCase());
+        return (formattedEmailAddress && formattedEmailAddress.length > 0 && expression.test(formattedEmailAddress));
     };
 }
 
