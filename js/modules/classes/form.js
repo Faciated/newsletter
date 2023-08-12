@@ -2,7 +2,7 @@
 // Utility //
 import EventHandler from '../utility/event-handler.js'
 
-class FormInterpreter {
+class FormInterpreter { // was too lazy to add different input types
     isFormValid(form) {
         for (const [name, data] of Object.entries(form.getFormValues())) {
             if (!this[data.type + "Check"](data.value))
@@ -69,6 +69,31 @@ class Form {
         };
 
         return formValues;
+    };
+
+    resetFormInputs() {
+        for (const childElement of this.currentForm.children) {
+            if (childElement.tagName !== 'INPUT')
+                continue;
+
+            childElement.value = ""
+        };
+    };
+
+    updateFormInput(inputName, newValue) {
+        let formInput;
+
+        for (const childElement of this.currentForm.children) {
+            if (childElement.tagName === 'INPUT' && childElement.name === inputName) {
+                formInput = childElement;
+                break;
+            };
+        };
+
+        if (!formInput)
+            return;
+
+        formInput.value = newValue;
     };
 
     remove() {

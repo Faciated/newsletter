@@ -14,6 +14,7 @@ const successMessageButton = successMessage.querySelector('button');
 const formHandler = new Form(newsletterForm);
 
 let submitHandler = (event) => {
+    formHandler.resetFormInputs();
     successMessageEmail.innerText = event.arguments.email.value;
     pages.next();
 };
