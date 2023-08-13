@@ -1,6 +1,6 @@
 // --{Imports}-- //
 // Classes //
-import Form from "./modules/classes/Form.js";
+import Form from "./modules/classes/form.js";
 import PageSequencer from "./modules/classes/page-sequencer.js";
 
 // --{Variables}-- //
